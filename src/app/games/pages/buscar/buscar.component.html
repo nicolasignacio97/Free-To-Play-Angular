@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout="column">
+        <div>
+            <h1>Buscar Personaje</h1>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" style="width: 20rem;">
+                <mat-label>Personaje</mat-label>
+                <input type="text" placeholder="Buscar" aria-label="Personaje" matInput [(ngModel)]="termino"
+                    [matAutocomplete]="auto" (input)="buscando()">
+
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                    (optionSelected)="opcionSeleccionada($event)">
+                    <mat-option *ngFor="let personaje of personajes" [value]="personaje.name">
+                        {{personaje.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="45" fxFlex.md="40" *ngFor="let personaje of personajes">
+        <app-personajes-tarjeta [personaje]="personaje"></app-personajes-tarjeta>
+    </div>
+</div>

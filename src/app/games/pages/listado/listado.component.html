@@ -1,0 +1,10 @@
+<h1>Listado De Personajes</h1>
+<mat-divider></mat-divider>
+
+<br>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
+    <div fxFlex="20" fxFlex.lg="20" fxFlex.sm="45" fxFlex.md="40" *ngFor="let personaje of personajes">
+        <app-personajes-tarjeta [personaje]="personaje"></app-personajes-tarjeta>
+    </div>
+</div>

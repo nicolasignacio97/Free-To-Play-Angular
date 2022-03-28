@@ -1,0 +1,37 @@
+<mat-grid-list cols="1" *ngIf="!personaje; else divPersonaje">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divPersonaje>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+        <div fxFlex="50">
+            <h1>{{personaje.name}} <small>{{personaje.nickname}}</small></h1>
+            <mat-divider></mat-divider>
+            <br>
+            <img [src]="personaje | imagen">
+        </div>
+        <div fxFlex="50">
+            <h1>{{personaje.category}}</h1>
+            <mat-divider></mat-divider>
+            <br>
+
+            <mat-list>
+                <mat-list-item><h2>Ocupacion: </h2></mat-list-item>
+                <div *ngFor="let item of personaje.occupation">
+                    <mat-list-item>{{item}}</mat-list-item>
+                </div>
+                <mat-list-item><h2>Cumpleaños: {{personaje.birthday}}</h2></mat-list-item>
+                <mat-list-item><h2>Estado: {{personaje.status}}</h2></mat-list-item>
+                <mat-list-item><h2>Actor: {{personaje.portrayed}}</h2></mat-list-item>
+            </mat-list>
+            <br>
+            <button mat-button  color="primary" (click)="regresar()">
+                Regresar
+            </button>
+        </div>
+    </div>
+</ng-template>
+
+

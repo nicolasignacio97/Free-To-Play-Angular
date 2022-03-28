@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{personaje.name}}</mat-card-title>
+        <mat-card-subtitle>{{personaje.nickname}}</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="personaje | imagen" alt={{personaje.name}} style="width: 100%; height: 26rem;">
+    <mat-card-content>
+        <p>Serie: <span color="primary">{{personaje.category}}</span></p>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center">
+        <button mat-raised-button color="warn" [routerLink]="['/personajes',personaje.char_id]">
+            Ver más...
+        </button>
+    </mat-card-actions>
+</mat-card>
